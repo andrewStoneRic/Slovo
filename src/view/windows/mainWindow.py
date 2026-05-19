@@ -1,7 +1,7 @@
 import logging as log
 
 from PySide6.QtWidgets import QMainWindow, QAbstractButton, QPushButton
-from PySide6.QtCore import Slot
+
 from PySide6.QtGui import QIcon, QCursor
 
 from ..generated.ui_mainWindow import Ui_MainWindow
@@ -21,25 +21,15 @@ class MainWindow(QMainWindow):
         
         log.info("Настройка основных параметров UI главного окна")
         self.ui.setupUi(self)
-        
-        log.info("Настройка сигналов кнопок")
-        self.setupSignalsButtons()
-        
-        log.info("Инициализация темы")
-        self.initStylesSheet()
-    
-    def setupSignalsButtons(self):
-        """Устанавливает сигналы для кнопок"""
 
         log.info("Настройка кнопок иструментов")
         self.setupToolButtons()
         
-        log.info("Настройка сигнала при нажатии на кнопку изменения языка")
-        self.ui.changeLanguageButton.clicked.connect(self.view_LanguagePopup)
-
-
+        log.info("Инициализация темы")
+        self.initStylesSheet()
+    
     def setupToolButtons(self):
-        """Устанавливает поведение и вид кнопок инструментов"""
+        """Устанавливает вид кнопок инструментов"""
         
         checkedBtn = self.ui.toolButtonGroup.checkedButton()
         if checkedBtn is not None:
@@ -47,19 +37,6 @@ class MainWindow(QMainWindow):
             checkedBtn.setIcon(current_icon)
         else:
             log.error("Нету выбранной кнопки!")
-
-        self.ui.toolButtonGroup.buttonToggled.connect(self.on_toolButtonGroup_toggled)
-    
-    @Slot(QAbstractButton, bool) 
-    def on_toolButtonGroup_toggled(self, btn: QPushButton, checked: bool):
-        """Проявление действия при нажатии или разжатии кнопки инструмента"""
-
-        if checked:
-            log.info(f"Кнопка {btn} - активирована")
-            self.make_icon_of_check_btn_current(btn)
-        else:
-            log.info(f"Кнопка {btn} - выключена")
-            self.make_icon_of_check_btn_normal(btn)
 
     def make_icon_of_check_btn_current(self, btn: QPushButton):
         """Делает иконку проверяемой кнопки выбранной"""
@@ -75,7 +52,7 @@ class MainWindow(QMainWindow):
         normal_icon = QIcon(btn.property("icon_path"))
         btn.setIcon(normal_icon)
 
-    def view_LanguagePopup(self):
+    def show_LanguagePopup(self):
         """Показ плавующего окна для смены языка"""
 
         log.info("Установка координат для плавоющего окна")
