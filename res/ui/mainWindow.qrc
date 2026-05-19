@@ -1,0 +1,18 @@
+<RCC>
+  <qresource prefix="light_image">
+    <file>../image/light/light_add.svg</file>
+    <file>../image/light/light_add_box.svg</file>
+    <file>../image/light/light_add_circle.svg</file>
+    <file>../image/light/light_bookmark.svg</file>
+    <file>../image/light/light_cube.svg</file>
+    <file>../image/light/light_dashboard.svg</file>
+    <file>../image/light/light_expand_all.svg</file>
+    <file>../image/light/light_help.svg</file>
+    <file>../image/light/light_home.svg</file>
+    <file>../image/light/light_liblary_books.svg</file>
+    <file>../image/light/light_menu.svg</file>
+    <file>../image/light/light_more.svg</file>
+    <file>../image/light/light_search.svg</file>
+    <file>../image/light/light_settings.svg</file>
+  </qresource>
+</RCC>

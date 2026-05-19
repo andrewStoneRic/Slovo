@@ -1,0 +1,48 @@
+QMainWindow {
+	background-color: rgb(255, 255, 255);
+}
+
+#toolsWidget QPushButton {
+    background-color: transparent;
+    border: 0px;
+    border-radius: 8px;
+}
+
+#toolsWidget QPushButton:checked {
+    background-color: #334033;
+    color: white;
+    border: 0px; 
+}
+
+#plusElementViewButton:hover {
+		background-color: #dbdbdb;
+}
+
+#scrollAreaWidgetContents {
+		background-color: #ffffff;
+}
+
+#settingsWidget QPushButton {
+		color: #334033;
+		background-color: transparent;
+		border: 0px;
+		border-radius: 8px;
+}
+
+#settingsWidget QPushButton:hover {
+		background-color: #dbdbdb;
+}
+
+#changeLanguageButton {
+		text-align: left;
+}
+
+#workspaceWidget QPushButton {
+		color: #334033;
+		background-color: transparent;
+}
+
+#workspaceWidget QPushButton:hover {
+		color: #23D223;
+}
+
