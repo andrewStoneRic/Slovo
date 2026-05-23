@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>945</width>
-    <height>520</height>
+    <width>978</width>
+    <height>591</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,11 +16,8 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,14,3">
-    <property name="spacing">
-     <number>0</number>
-    </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,0,16,0,1">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -269,9 +266,24 @@
                <x>0</x>
                <y>0</y>
                <width>362</width>
-               <height>334</height>
+               <height>405</height>
               </rect>
              </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>
@@ -361,6 +373,13 @@
         </widget>
        </item>
       </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
      </widget>
     </item>
     <item>
@@ -462,7 +481,90 @@
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="actionWidget" native="true"/>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="actionWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <property name="topMargin">
+        <number>9</number>
+       </property>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="homeButton">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="mainWindow.qrc">
+           <normaloff>:/light_image/image/light/light_home.svg</normaloff>:/light_image/image/light/light_home.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>85</width>
+           <height>85</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="dashboardButton">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="mainWindow.qrc">
+           <normaloff>:/light_image/image/light/light_dashboard.svg</normaloff>:/light_image/image/light/light_dashboard.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>85</width>
+           <height>85</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="exportToAnkiButton">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="mainWindow.qrc">
+           <normaloff>:/light_image/image/light/light_anki.svg</normaloff>:/light_image/image/light/light_anki.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>85</width>
+           <height>85</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>

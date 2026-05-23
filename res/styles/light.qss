@@ -46,3 +46,14 @@ QMainWindow {
 		color: #23D223;
 }
 
+#actionWidget QPushButton {
+		color: #334033;
+		background-color: transparent;
+		border: 0px;
+		border-radius: 8px;
+
+}
+
+#actionWidget QPushButton:hover {
+		background-color: #dbdbdb;
+}

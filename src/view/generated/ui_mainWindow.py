@@ -15,24 +15,23 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QButtonGroup, QFrame, QHBoxLayout,
-    QMainWindow, QPushButton, QScrollArea, QSizePolicy,
-    QSpacerItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QButtonGroup, QFormLayout, QFrame,
+    QHBoxLayout, QMainWindow, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 from . import mainWindow_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(980, 520)
+        MainWindow.resize(945, 520)
         MainWindow.setStyleSheet(u"")
-        self.centralwidget = QWidget(MainWindow)
-        self.centralwidget.setObjectName(u"centralwidget")
-        self.horizontalLayout = QHBoxLayout(self.centralwidget)
-        self.horizontalLayout.setSpacing(0)
+        self.centralWidget = QWidget(MainWindow)
+        self.centralWidget.setObjectName(u"centralWidget")
+        self.horizontalLayout = QHBoxLayout(self.centralWidget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.listAndToolsAndSettingsWidget = QWidget(self.centralwidget)
+        self.listAndToolsAndSettingsWidget = QWidget(self.centralWidget)
         self.listAndToolsAndSettingsWidget.setObjectName(u"listAndToolsAndSettingsWidget")
         self.verticalLayout = QVBoxLayout(self.listAndToolsAndSettingsWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -137,6 +136,12 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 362, 334))
+        self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_4.addItem(self.verticalSpacer_2)
+
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.verticalLayout_2.addWidget(self.scrollArea)
@@ -201,7 +206,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.listAndToolsAndSettingsWidget)
 
-        self.workspaceWidget = QWidget(self.centralwidget)
+        self.line_2 = QFrame(self.centralWidget)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setFrameShape(QFrame.Shape.VLine)
+        self.line_2.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.horizontalLayout.addWidget(self.line_2)
+
+        self.workspaceWidget = QWidget(self.centralWidget)
         self.workspaceWidget.setObjectName(u"workspaceWidget")
         self.workspaceWidget.setStyleSheet(u"")
         self.verticalLayout_3 = QVBoxLayout(self.workspaceWidget)
@@ -248,15 +260,58 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.workspaceWidget)
 
-        self.actionWidget = QWidget(self.centralwidget)
+        self.line = QFrame(self.centralWidget)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.Shape.VLine)
+        self.line.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.horizontalLayout.addWidget(self.line)
+
+        self.actionWidget = QWidget(self.centralWidget)
         self.actionWidget.setObjectName(u"actionWidget")
+        self.actionWidget.setStyleSheet(u"")
+        self.formLayout = QFormLayout(self.actionWidget)
+        self.formLayout.setObjectName(u"formLayout")
+        self.formLayout.setContentsMargins(-1, 9, -1, -1)
+        self.homeButton = QPushButton(self.actionWidget)
+        self.homeButton.setObjectName(u"homeButton")
+        self.homeButton.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        icon8 = QIcon()
+        icon8.addFile(u":/light_image/image/light/light_home.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.homeButton.setIcon(icon8)
+        self.homeButton.setIconSize(QSize(85, 85))
+
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.homeButton)
+
+        self.dashboardButton = QPushButton(self.actionWidget)
+        self.dashboardButton.setObjectName(u"dashboardButton")
+        icon9 = QIcon()
+        icon9.addFile(u":/light_image/image/light/light_dashboard.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.dashboardButton.setIcon(icon9)
+        self.dashboardButton.setIconSize(QSize(85, 85))
+
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.FieldRole, self.dashboardButton)
+
+        self.exportToAnkiButton = QPushButton(self.actionWidget)
+        self.exportToAnkiButton.setObjectName(u"exportToAnkiButton")
+        icon10 = QIcon()
+        icon10.addFile(u":/light_image/image/light/light_anki.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.exportToAnkiButton.setIcon(icon10)
+        self.exportToAnkiButton.setIconSize(QSize(85, 85))
+
+        self.formLayout.setWidget(3, QFormLayout.ItemRole.FieldRole, self.exportToAnkiButton)
+
+        self.verticalSpacer = QSpacerItem(20, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.formLayout.setItem(4, QFormLayout.ItemRole.FieldRole, self.verticalSpacer)
+
 
         self.horizontalLayout.addWidget(self.actionWidget)
 
-        self.horizontalLayout.setStretch(0, 5)
-        self.horizontalLayout.setStretch(1, 14)
-        self.horizontalLayout.setStretch(2, 3)
-        MainWindow.setCentralWidget(self.centralwidget)
+        self.horizontalLayout.setStretch(0, 2)
+        self.horizontalLayout.setStretch(2, 16)
+        self.horizontalLayout.setStretch(4, 1)
+        MainWindow.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(MainWindow)
 
@@ -281,5 +336,8 @@ class Ui_MainWindow(object):
         self.createChunkButton.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0447\u0430\u043d\u043a", None))
         self.createContextButton.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442", None))
         self.searchButton.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0438\u0441\u043a", None))
+        self.homeButton.setText("")
+        self.dashboardButton.setText("")
+        self.exportToAnkiButton.setText("")
     # retranslateUi
 
