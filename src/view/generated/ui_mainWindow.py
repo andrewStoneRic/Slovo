@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QButtonGroup, QFormLayout, QFrame,
-    QHBoxLayout, QMainWindow, QPushButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QButtonGroup, QFrame, QHBoxLayout,
+    QMainWindow, QPushButton, QScrollArea, QSizePolicy,
+    QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
 from . import mainWindow_rc
 
 class Ui_MainWindow(object):
@@ -181,6 +181,7 @@ class Ui_MainWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.helpButton.sizePolicy().hasHeightForWidth())
         self.helpButton.setSizePolicy(sizePolicy1)
+        self.helpButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon6 = QIcon()
         icon6.addFile(u":/light_image/image/light/light_help.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.helpButton.setIcon(icon6)
@@ -190,6 +191,7 @@ class Ui_MainWindow(object):
 
         self.settingsButton = QPushButton(self.settingsWidget)
         self.settingsButton.setObjectName(u"settingsButton")
+        self.settingsButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon7 = QIcon()
         icon7.addFile(u":/light_image/image/light/light_settings.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.settingsButton.setIcon(icon7)
@@ -213,16 +215,18 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.line_2)
 
-        self.workspaceWidget = QWidget(self.centralWidget)
-        self.workspaceWidget.setObjectName(u"workspaceWidget")
-        self.workspaceWidget.setStyleSheet(u"")
-        self.verticalLayout_3 = QVBoxLayout(self.workspaceWidget)
+        self.workspaceStackedWidget = QStackedWidget(self.centralWidget)
+        self.workspaceStackedWidget.setObjectName(u"workspaceStackedWidget")
+        self.workspaceStackedWidget.setStyleSheet(u"")
+        self.homeStackedWidget = QWidget()
+        self.homeStackedWidget.setObjectName(u"homeStackedWidget")
+        self.verticalLayout_3 = QVBoxLayout(self.homeStackedWidget)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.topVerticalSpacer = QSpacerItem(20, 166, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_3.addItem(self.topVerticalSpacer)
 
-        self.createWordButton = QPushButton(self.workspaceWidget)
+        self.createWordButton = QPushButton(self.homeStackedWidget)
         self.createWordButton.setObjectName(u"createWordButton")
         font2 = QFont()
         font2.setPointSize(20)
@@ -232,21 +236,21 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.createWordButton)
 
-        self.createChunkButton = QPushButton(self.workspaceWidget)
+        self.createChunkButton = QPushButton(self.homeStackedWidget)
         self.createChunkButton.setObjectName(u"createChunkButton")
         self.createChunkButton.setFont(font2)
         self.createChunkButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.verticalLayout_3.addWidget(self.createChunkButton)
 
-        self.createContextButton = QPushButton(self.workspaceWidget)
+        self.createContextButton = QPushButton(self.homeStackedWidget)
         self.createContextButton.setObjectName(u"createContextButton")
         self.createContextButton.setFont(font2)
         self.createContextButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
         self.verticalLayout_3.addWidget(self.createContextButton)
 
-        self.searchButton = QPushButton(self.workspaceWidget)
+        self.searchButton = QPushButton(self.homeStackedWidget)
         self.searchButton.setObjectName(u"searchButton")
         self.searchButton.setFont(font2)
         self.searchButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
@@ -257,8 +261,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addItem(self.bottomVerticalSpacer)
 
+        self.workspaceStackedWidget.addWidget(self.homeStackedWidget)
 
-        self.horizontalLayout.addWidget(self.workspaceWidget)
+        self.horizontalLayout.addWidget(self.workspaceStackedWidget)
 
         self.line = QFrame(self.centralWidget)
         self.line.setObjectName(u"line")
@@ -270,40 +275,43 @@ class Ui_MainWindow(object):
         self.actionWidget = QWidget(self.centralWidget)
         self.actionWidget.setObjectName(u"actionWidget")
         self.actionWidget.setStyleSheet(u"")
-        self.formLayout = QFormLayout(self.actionWidget)
-        self.formLayout.setObjectName(u"formLayout")
-        self.formLayout.setContentsMargins(-1, 9, -1, -1)
+        self.verticalLayout_5 = QVBoxLayout(self.actionWidget)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(-1, 9, -1, -1)
         self.homeButton = QPushButton(self.actionWidget)
         self.homeButton.setObjectName(u"homeButton")
+        self.homeButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.homeButton.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         icon8 = QIcon()
         icon8.addFile(u":/light_image/image/light/light_home.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.homeButton.setIcon(icon8)
         self.homeButton.setIconSize(QSize(85, 85))
 
-        self.formLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.homeButton)
+        self.verticalLayout_5.addWidget(self.homeButton)
 
         self.dashboardButton = QPushButton(self.actionWidget)
         self.dashboardButton.setObjectName(u"dashboardButton")
+        self.dashboardButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon9 = QIcon()
         icon9.addFile(u":/light_image/image/light/light_dashboard.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.dashboardButton.setIcon(icon9)
         self.dashboardButton.setIconSize(QSize(85, 85))
 
-        self.formLayout.setWidget(2, QFormLayout.ItemRole.FieldRole, self.dashboardButton)
+        self.verticalLayout_5.addWidget(self.dashboardButton)
 
         self.exportToAnkiButton = QPushButton(self.actionWidget)
         self.exportToAnkiButton.setObjectName(u"exportToAnkiButton")
+        self.exportToAnkiButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon10 = QIcon()
         icon10.addFile(u":/light_image/image/light/light_anki.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.exportToAnkiButton.setIcon(icon10)
         self.exportToAnkiButton.setIconSize(QSize(85, 85))
 
-        self.formLayout.setWidget(3, QFormLayout.ItemRole.FieldRole, self.exportToAnkiButton)
+        self.verticalLayout_5.addWidget(self.exportToAnkiButton)
 
         self.verticalSpacer = QSpacerItem(20, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.formLayout.setItem(4, QFormLayout.ItemRole.FieldRole, self.verticalSpacer)
+        self.verticalLayout_5.addItem(self.verticalSpacer)
 
 
         self.horizontalLayout.addWidget(self.actionWidget)
@@ -314,6 +322,9 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(MainWindow)
+
+        self.workspaceStackedWidget.setCurrentIndex(0)
+
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi

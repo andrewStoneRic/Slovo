@@ -14,10 +14,17 @@ class MainWindowController:
 
     def setupConnection(self):
         """Настраивает соединения с кнопками главного окна"""
-
+        
         self.view.ui.toolButtonGroup.buttonToggled.connect(self.on_toolButtonGroup_toggled)
+
         log.info("Настройка сигнала при нажатии на кнопку изменения языка")
         self.view.ui.changeLanguageButton.clicked.connect(self.view.show_LanguagePopup)
+
+        log.info("Настройка сигнала при нажатии на кнопку дашборда из панели активностей")
+        self.view.ui.dashboardButton.clicked.connect(self.view.show_dashboard)
+
+        log.info("Настройка сигнала при нажатии на кнопку дома из панели активностей")
+        self.view.ui.homeButton.clicked.connect(self.view.show_home)
 
     @Slot(QAbstractButton, bool) 
     def on_toolButtonGroup_toggled(self, btn: QPushButton, checked: bool):

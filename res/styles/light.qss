@@ -37,12 +37,12 @@ QMainWindow {
 		text-align: left;
 }
 
-#workspaceWidget QPushButton {
+#workspaceStackedWidget QPushButton {
 		color: #334033;
 		background-color: transparent;
 }
 
-#workspaceWidget QPushButton:hover {
+#homeStackedWidget QPushButton:hover {
 		color: #23D223;
 }
 

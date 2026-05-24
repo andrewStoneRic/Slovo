@@ -1,12 +1,12 @@
 import logging as log
 
 from PySide6.QtWidgets import QMainWindow, QAbstractButton, QPushButton
-
 from PySide6.QtGui import QIcon, QCursor
 
 from ..generated.ui_mainWindow import Ui_MainWindow
 
 from ..widgets.languagePopup import LanguagePopup
+from ..widgets.dashboard import Dashboard
 
 from ..utils.renderIcons import render_svg_icon_color
 
@@ -22,12 +22,21 @@ class MainWindow(QMainWindow):
         log.info("Настройка основных параметров UI главного окна")
         self.ui.setupUi(self)
 
+        log.info("Инициализация стека виджета рабочего пространства")
+        self.initStackedWidget()
+
         log.info("Настройка кнопок иструментов")
         self.setupToolButtons()
         
         log.info("Инициализация темы")
         self.initStylesSheet()
-    
+   
+    def initStackedWidget(self):
+        """Настройка стека виджетов"""
+
+        dashboard = Dashboard()
+        self.ui.workspaceStackedWidget.addWidget(dashboard)
+
     def setupToolButtons(self):
         """Устанавливает вид кнопок инструментов"""
         
@@ -55,7 +64,7 @@ class MainWindow(QMainWindow):
     def show_LanguagePopup(self):
         """Показ плавующего окна для смены языка"""
 
-        log.info("Установка координат для плавоющего окна")
+        log.info("Установка координат для плавующего окна")
         pos_cursor = QCursor().pos()
 
         x, y = pos_cursor.x(), pos_cursor.y()
@@ -66,6 +75,18 @@ class MainWindow(QMainWindow):
         # Вычитание для того, чтобы окно было над курсором, а не под ним 
         popup.move(x, y - popup.height())
         popup.show()
+
+    def show_home(self):
+        """Показ дома"""
+        
+        log.info("Смена workplace на дом")
+        self.ui.workspaceStackedWidget.setCurrentIndex(0)
+
+    def show_dashboard(self):
+        """Показ дашборда"""
+        
+        log.info("Смена workplace на дашборд")
+        self.ui.workspaceStackedWidget.setCurrentIndex(1)
 
     def initStylesSheet(self, theme='light'):
         """Недоработано"""
