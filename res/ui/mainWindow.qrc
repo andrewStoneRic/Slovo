@@ -1,8 +1,8 @@
 <RCC>
   <qresource prefix="light_image">
     <file>../image/light/light_add.svg</file>
-    <file>../image/light/light_anki.svg</file>
     <file>../image/light/light_add_box.svg</file>
+    <file>../image/light/light_anki.svg</file>
     <file>../image/light/light_add_circle.svg</file>
     <file>../image/light/light_bookmark.svg</file>
     <file>../image/light/light_cube.svg</file>

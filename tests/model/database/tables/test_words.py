@@ -16,8 +16,8 @@ def test_create_and_init_WordBase():
     assert word_hello.text == "hello"
     assert word_hello.langID == 0
     assert word_hello.language == None
-    assert word_hello.metaWords == {}
     assert word_hello.definitions == []
     assert word_hello.tags == []
     assert word_hello.partsOfSpeech == []
     assert word_hello.contexts == []
+    assert word_hello.metaWords == {}

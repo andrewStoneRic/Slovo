@@ -42,4 +42,4 @@ class WordBase(Base):
         back_populates="word", cascade="all, delete-orphan"
     )
     
-    metaWords: Mapped[dict[str: Any ]] = mapped_column(JSON)
+    metaWords: Mapped[dict[str: Any]] = mapped_column(JSON)
